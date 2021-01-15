@@ -110,25 +110,25 @@ public abstract class AbstractCommandExecutor {
         List<String> command = new LinkedList<>();
 
         if (OSUtils.isWindows()) {
-            throw new RuntimeException("not support windows !");
+           // throw new RuntimeException("not support windows !");
             //init process builder
-//            ProcessBuilderForWin32 processBuilder = new ProcessBuilderForWin32();
-//            // setting up a working directory
-//            processBuilder.directory(new File(taskExecutionContext.getExecutePath()));
-//            // setting up a username and password
-//            processBuilder.user(taskExecutionContext.getTenantCode(), StringUtils.EMPTY);
-//            // merge error information to standard output stream
-//            processBuilder.redirectErrorStream(true);
+            ProcessBuilder processBuilder = new ProcessBuilder();
+            // setting up a working directory
+            processBuilder.directory(new File(taskExecutionContext.getExecutePath()));
+            // setting up a username and password
+            //processBuilder.user(taskExecutionContext.getTenantCode(), StringUtils.EMPTY);
+            // merge error information to standard output stream
+            processBuilder.redirectErrorStream(true);
 //
-//            // setting up user to run commands
-//            command.add(commandInterpreter());
-//            command.add("/c");
-//            command.addAll(commandOptions());
-//            command.add(commandFile);
+            // setting up user to run commands
+            command.add(commandInterpreter());
+            command.add("/c");
+            command.addAll(commandOptions());
+            command.add(commandFile);
 //
 //            // setting commands
-//            processBuilder.command(command);
-//            process = processBuilder.start();
+            processBuilder.command(command);
+            process = processBuilder.start();
         } else {
             //init process builder
             ProcessBuilder processBuilder = new ProcessBuilder();
