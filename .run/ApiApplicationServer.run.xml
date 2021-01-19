@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ApiApplicationServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="dolphinscheduler-api" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.apache.dolphinscheduler.api.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.apache.dolphinscheduler.api.ApiApplicationServer" />
+    <option name="VM_PARAMETERS" value="-Dlogging.config=classpath:logback-api.xml -Dspring.profiles.active=api" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

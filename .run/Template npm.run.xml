@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/dolphinscheduler-ui/package.json" />
+    <command value="run" />
+    <scripts />
+    <node-interpreter value="node" />
+    <package-manager value="npm" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>
