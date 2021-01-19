@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MasterServer" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="org.apache.dolphinscheduler.server.master.MasterServer" />
+    <module name="dolphinscheduler-server" />
+    <option name="VM_PARAMETERS" value="-Dlogging.config=classpath:logback-master.xml -Ddruid.mysql.usePingMethod=false" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

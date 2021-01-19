@@ -250,6 +250,19 @@ const nodeStatusList = [
     label: `${i18n.$t('failed')}`
   }
 ]
+/**
+ * sqlType
+ */
+const sftpOperTypeList = [
+  {
+    id: '0',
+    code: '下载'
+  },
+  {
+    id: '1',
+    code: '上传'
+  }
+]
 
 export {
   cycleList,
@@ -258,5 +271,6 @@ export {
   directList,
   sqlTypeList,
   positionList,
-  nodeStatusList
+  nodeStatusList,
+  sftpOperTypeList
 }

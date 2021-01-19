@@ -253,9 +253,16 @@
           ref="CONDITIONS"
           @on-dependent="_onDependent"
           @on-cache-dependent="_onCacheDependent"
+          :backfill-item="backfillItem">
+        </m-conditions>
+        <m-sftp
+          v-if="taskType === 'SFTP'"
+          @on-params="_onParams"
+          @on-cache-params="_onCacheParams"
+          ref="SFTP"
           :backfill-item="backfillItem"
           :pre-node="preNode">
-        </m-conditions>
+        </m-sftp>
       </div>
     </div>
     <div class="bottom-box">
@@ -292,6 +299,7 @@
   import disabledState from '@/module/mixin/disabledState'
   import { isNameExDag, rtBantpl } from './../plugIn/util'
   import mPriority from '@/module/components/priority/priority'
+  import mSftp from './tasks/sftp'
 
   export default {
     name: 'form-model',
@@ -729,7 +737,8 @@
       mSelectInput,
       mTimeoutAlarm,
       mPriority,
-      mWorkerGroups
+      mWorkerGroups,
+      mSftp
     }
   }
 </script>
