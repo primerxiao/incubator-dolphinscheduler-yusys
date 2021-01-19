@@ -290,6 +290,10 @@ const tasksType = {
   CONDITIONS: {
     desc: 'CONDITIONS',
     color: '#E46F13'
+  },
+  SFTP: {
+    desc: 'SFTP',
+    color: '#c7b31f'
   }
 }
 
