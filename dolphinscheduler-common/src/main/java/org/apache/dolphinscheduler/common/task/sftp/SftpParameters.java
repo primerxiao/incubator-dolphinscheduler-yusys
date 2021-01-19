@@ -55,15 +55,24 @@ public class SftpParameters extends AbstractParameters {
     private int operType;
 
     /**
-     * server files for oper
+     * server filepath for oper
      */
-    private List<String> serverFiles;
+    private String serverFilePath;
 
     /**
-     * local files for oper
+     * server filename for oper
      */
-    private List<String> localFiles;
+    private String serverFileName;
 
+    /**
+     * local filepath for oper
+     */
+    private String localFilePath;
+
+    /**
+     * local filename for oper
+     */
+    private String localFileName;
 
 
     @Override
@@ -73,8 +82,10 @@ public class SftpParameters extends AbstractParameters {
                     && StringUtils.isNotEmpty(port)
                     && StringUtils.isNotEmpty(userName)
                     && StringUtils.isNotEmpty(password)
-                    && !serverFiles.isEmpty()
-                    && !localFiles.isEmpty();
+                    && StringUtils.isNotEmpty(serverFilePath)
+                    && StringUtils.isNotEmpty(serverFileName)
+                    && StringUtils.isNotEmpty(localFilePath)
+                    && StringUtils.isNotEmpty(localFileName);
         } else {
             return false;
         }
@@ -93,8 +104,82 @@ public class SftpParameters extends AbstractParameters {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", operType=" + operType +
-                ", serverFiles=" + serverFiles +
-                ", localFiles=" + localFiles +
+                ", serverFilePath='" + serverFilePath + '\'' +
+                ", serverFileName='" + serverFileName + '\'' +
+                ", localFilePath='" + localFilePath + '\'' +
+                ", localFileName='" + localFileName + '\'' +
                 '}';
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getOperType() {
+        return operType;
+    }
+
+    public void setOperType(int operType) {
+        this.operType = operType;
+    }
+
+    public String getServerFilePath() {
+        return serverFilePath;
+    }
+
+    public void setServerFilePath(String serverFilePath) {
+        this.serverFilePath = serverFilePath;
+    }
+
+    public String getServerFileName() {
+        return serverFileName;
+    }
+
+    public void setServerFileName(String serverFileName) {
+        this.serverFileName = serverFileName;
+    }
+
+    public String getLocalFilePath() {
+        return localFilePath;
+    }
+
+    public void setLocalFilePath(String localFilePath) {
+        this.localFilePath = localFilePath;
+    }
+
+    public String getLocalFileName() {
+        return localFileName;
+    }
+
+    public void setLocalFileName(String localFileName) {
+        this.localFileName = localFileName;
     }
 }
