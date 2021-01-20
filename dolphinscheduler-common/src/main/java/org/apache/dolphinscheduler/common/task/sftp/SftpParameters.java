@@ -50,9 +50,9 @@ public class SftpParameters extends AbstractParameters {
     private String password;
 
     /**
-     * oper type ,eq 0 for DownLoad, eq 1 for Upload
+     * oper type ,eq "0" for DownLoad, eq "1" for Upload
      */
-    private int operType;
+    private String operType;
 
     /**
      * server filepath for oper
@@ -77,18 +77,15 @@ public class SftpParameters extends AbstractParameters {
 
     @Override
     public boolean checkParameters() {
-        if (operType == Flag.NO.ordinal() || operType == Flag.YES.ordinal()) {
-            return StringUtils.isNotEmpty(ip)
-                    && StringUtils.isNotEmpty(port)
-                    && StringUtils.isNotEmpty(userName)
-                    && StringUtils.isNotEmpty(password)
-                    && StringUtils.isNotEmpty(serverFilePath)
-                    && StringUtils.isNotEmpty(serverFileName)
-                    && StringUtils.isNotEmpty(localFilePath)
-                    && StringUtils.isNotEmpty(localFileName);
-        } else {
-            return false;
-        }
+        return StringUtils.isNotEmpty(operType)
+                && StringUtils.isNotEmpty(ip)
+                && StringUtils.isNotEmpty(port)
+                && StringUtils.isNotEmpty(userName)
+                && StringUtils.isNotEmpty(password)
+                && StringUtils.isNotEmpty(serverFilePath)
+                && StringUtils.isNotEmpty(serverFileName)
+                && StringUtils.isNotEmpty(localFilePath)
+                && StringUtils.isNotEmpty(localFileName);
     }
 
     @Override
@@ -103,7 +100,7 @@ public class SftpParameters extends AbstractParameters {
                 ", port='" + port + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
-                ", operType=" + operType +
+                ", operType='" + operType + '\'' +
                 ", serverFilePath='" + serverFilePath + '\'' +
                 ", serverFileName='" + serverFileName + '\'' +
                 ", localFilePath='" + localFilePath + '\'' +
@@ -143,11 +140,11 @@ public class SftpParameters extends AbstractParameters {
         this.password = password;
     }
 
-    public int getOperType() {
+    public String getOperType() {
         return operType;
     }
 
-    public void setOperType(int operType) {
+    public void setOperType(String operType) {
         this.operType = operType;
     }
 

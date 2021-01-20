@@ -19,55 +19,32 @@ package org.apache.dolphinscheduler.common.enums;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 
 /**
- * task node type
+ * have_script
+ * have_file
+ * can_retry
+ * have_arr_variables
+ * have_map_variables
+ * have_alert
  */
-public enum TaskType {
+public enum SftpOperType {
     /**
-     * 0 SHELL
-     * 1 SQL
-     * 2 SUB_PROCESS
-     * 3 PROCEDURE
-     * 4 MR
-     * 5 SPARK
-     * 6 PYTHON
-     * 7 DEPENDENT
-     * 8 FLINK
-     * 9 HTTP
-     * 10 DATAX
-     * 11 CONDITIONS
-     * 12 SQOOP
-     * 13 SFTP
+     * "0" DOWN
+     * "1" UPLOAD
      */
-    SHELL(0, "shell"),
-    SQL(1, "sql"),
-    SUB_PROCESS(2, "sub_process"),
-    PROCEDURE(3, "procedure"),
-    MR(4, "mr"),
-    SPARK(5, "spark"),
-    PYTHON(6, "python"),
-    DEPENDENT(7, "dependent"),
-    FLINK(8, "flink"),
-    HTTP(9, "http"),
-    DATAX(10, "datax"),
-    CONDITIONS(11, "conditions"),
-    SQOOP(12, "sqoop"),
-    SFTP(13, "sftp");
+    DOWN("0", "DOWN"),
+    UPLOAD("1", "UPLOAD");
 
-    TaskType(int code, String descp){
+
+    SftpOperType(String code, String descp) {
         this.code = code;
         this.descp = descp;
     }
 
     @EnumValue
-    private final int code;
+    private final String code;
     private final String descp;
 
-    public static boolean typeIsNormalTask(String typeName) {
-        TaskType taskType = TaskType.valueOf(typeName);
-        return !(taskType == TaskType.SUB_PROCESS || taskType == TaskType.DEPENDENT);
-    }
-
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
