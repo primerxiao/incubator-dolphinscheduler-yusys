@@ -13,34 +13,4 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-package org.apache.dolphinscheduler.common.enums;
-
-import com.baomidou.mybatisplus.annotation.EnumValue;
-
-public enum SftpOperType {
-    /**
-     * "0" DOWN
-     * "1" UPLOAD
-     */
-    DOWN("0", "DOWN"),
-    UPLOAD("1", "UPLOAD");
-
-
-    SftpOperType(String code, String descp) {
-        this.code = code;
-        this.descp = descp;
-    }
-
-    @EnumValue
-    private final String code;
-    private final String descp;
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getDescp() {
-        return descp;
-    }
-}
+*/

@@ -18,25 +18,24 @@ package org.apache.dolphinscheduler.common.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 
-public enum SftpOperType {
+public enum SftpConnectType {
     /**
      * "0" DOWN
      * "1" UPLOAD
      */
-    DOWN("0", "DOWN"),
-    UPLOAD("1", "UPLOAD");
+    PASSWORD(0, "PASSWORD"),
+    PRIVATEKEY(1, "PRIVATEKEY");
 
-
-    SftpOperType(String code, String descp) {
+    SftpConnectType(int code, String descp) {
         this.code = code;
         this.descp = descp;
     }
 
     @EnumValue
-    private final String code;
+    private final int code;
     private final String descp;
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 

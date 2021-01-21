@@ -332,6 +332,27 @@ const router = new Router({
       ]
     },
     {
+      path: '/sftp',
+      name: 'sftp',
+      component: resolve => require(['../pages/sftp/index'], resolve),
+      meta: {
+        title: `${i18n.$t('Datasource')}`
+      },
+      redirect: {
+        name: 'sftp-list'
+      },
+      children: [
+        {
+          path: '/sftp/list',
+          name: 'sftp-list',
+          component: resolve => require(['../pages/sftp/pages/list/index'], resolve),
+          meta: {
+            title: `${i18n.$t('Datasource')}`
+          }
+        }
+      ]
+    },
+    {
       path: '/security',
       name: 'security',
       component: resolve => require(['../pages/security/index'], resolve),
