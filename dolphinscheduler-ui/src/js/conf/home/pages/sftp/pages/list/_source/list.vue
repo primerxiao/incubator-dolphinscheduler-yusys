@@ -23,25 +23,13 @@
             <span>{{$t('#')}}</span>
           </th>
           <th scope="col">
-            <span>{{$t('Datasource Name')}}</span>
-          </th>
-          <th scope="col" width="120">
-            <span>{{$t('Datasource Type')}}</span>
-          </th>
-          <th scope="col" width="100">
-            <span>{{$t('Datasource Parameter')}}</span>
+            <span>name</span>
           </th>
           <th scope="col">
-            <span>{{$t('Description')}}</span>
+            <span>note</span>
           </th>
-          <th scope="col" width="150">
-            <span>{{$t('Create Time')}}</span>
-          </th>
-          <th scope="col" width="150">
-            <span>{{$t('Update Time')}}</span>
-          </th>
-          <th scope="col" width="80">
-            <span>{{$t('Operation')}}</span>
+          <th scope="col">
+            <span>type</span>
           </th>
         </tr>
         <tr v-for="(item, $index) in list" :key="$index">
@@ -54,57 +42,14 @@
             </span>
           </td>
           <td>
-            <span>{{item.type}}</span>
+            <span class="ellipsis">
+              {{item.note}}
+            </span>
           </td>
           <td>
-            <m-tooltips-JSON :JSON="JSON.parse(item.connectionParams)" :id="item.id">
-              <span slot="reference">
-                <a href="javascript:" class="links" style="font-size: 12px;">{{$t('Click to view')}}</a>
-              </span>
-            </m-tooltips-JSON>
-          </td>
-          <td>
-            <span v-if="item.note" class="ellipsis" v-tooltip.large.top.start.light="{text: item.note, maxWidth: '500px'}">{{item.note}}</span>
-            <span v-else>-</span>
-          </td>
-          <td>
-            <span v-if="item.createTime">{{item.createTime | formatDate}}</span>
-            <span v-else>-</span>
-          </td>
-          <td>
-            <span v-if="item.updateTime">{{item.updateTime | formatDate}}</span>
-            <span v-else>-</span>
-          </td>
-          <td>
-            <x-button
-              type="info"
-              shape="circle"
-              size="xsmall"
-              data-toggle="tooltip"
-              :title="$t('Edit')"
-              icon="ans-icon-edit"
-              @click="_edit(item)">
-            </x-button>
-            <x-poptip
-              :ref="'poptip-delete-' + $index"
-              placement="bottom-end"
-              width="90">
-              <p>{{$t('Delete?')}}</p>
-              <div style="text-align: right; margin: 0;padding-top: 4px;">
-                <x-button type="text" size="xsmall" shape="circle" @click="_closeDelete($index)">{{$t('Cancel')}}</x-button>
-                <x-button type="primary" size="xsmall" shape="circle" @click="_delete(item,$index)">{{$t('Confirm')}}</x-button>
-              </div>
-              <template slot="reference">
-                <x-button
-                  type="error"
-                  shape="circle"
-                  size="xsmall"
-                  icon="ans-icon-trash"
-                  data-toggle="tooltip"
-                  :title="$t('delete')">
-                </x-button>
-              </template>
-            </x-poptip>
+            <span class="ellipsis">
+              {{item.type}}
+            </span>
           </td>
         </tr>
       </table>
@@ -126,14 +71,14 @@ export default {
   },
   props: {
     // External incoming data
-    datasourcesList: Array,
+    sftpList: Array,
     // current page number
     pageNo: Number,
     // Total number of articles
     pageSize: Number
   },
   methods: {
-    ...mapActions('datasource', ['deleteDatasource']),
+    ...mapActions('sftp', ['deleteSftp']),
     /**
      * Close delete popup layer
      */
@@ -145,7 +90,7 @@ export default {
      */
     _delete (item, i) {
       this.$refs[`poptip-delete-${i}`][0].doClose()
-      this.deleteDatasource({
+      this.deleteSftp({
         id: item.id
       }).then(res => {
         this.$emit('on-update')
@@ -158,14 +103,14 @@ export default {
      * edit
      */
     _edit (item) {
-      findComponentDownward(this.$root, 'datasource-indexP')._create(item)
+      findComponentDownward(this.$root, 'sftp-indexP')._create(item)
     }
   },
   watch: {
     /**
      * Monitor external data changes
      */
-    datasourcesList (a) {
+    sftpList (a) {
       this.list = []
       setTimeout(() => {
         this.list = a
@@ -173,7 +118,7 @@ export default {
     }
   },
   created () {
-    this.list = this.datasourcesList
+    this.list = this.sftpList
   },
   mounted () {
   },

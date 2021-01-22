@@ -62,6 +62,13 @@
           </router-link>
         </div>
       </div>
+      <div class="clearfix list">
+        <div class="nav-links">
+          <router-link :to="{ path: '/sftp'}" tag="a" active-class="active">
+            <span><em class="ansiconfont ans-icon-database"></em>sftp配置</span><strong></strong>
+          </router-link>
+        </div>
+      </div>
     </div>
     <div class="right">
       <!--<span class="docs">
@@ -142,6 +149,10 @@
             <router-link :to="{ path: '/security'}" tag="li" active-class="active" v-ps="['ADMIN_USER']">
               <em class="ans-icon-shield"></em>
               <span>{{$t('Security')}}</span>
+            </router-link>
+            <router-link :to="{ path: '/sftp'}" tag="li" active-class="active">
+              <em class="ans-icon-database"></em>
+              <span>sftp配置</span>
             </router-link>
           </ul>
         </div>

@@ -1,0 +1,11 @@
+举例说明：添加一个sftp配置管理（一级导航菜单）
+后台:
+1、创建表
+2、创建entity对象
+3、创建mapper对象
+4、、创建service和controller对象
+前端：
+1、添加sftp的相关模块 /src/js/conf/home/pages/sftp
+2、添加vuex配置
+/src/js/conf/store/index.js
+/src/js/conf/store/sftp/

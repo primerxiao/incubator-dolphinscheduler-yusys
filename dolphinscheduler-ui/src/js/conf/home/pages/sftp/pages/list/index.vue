@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 <template>
-  <m-list-construction :title="$t('Datasource')">
+  <m-list-construction :title="sftp配置管理">
     <template slot="conditions">
       <m-conditions @on-conditions="_onConditions">
         <template slot="button-group">
@@ -24,7 +24,7 @@
     </template>
     <template slot="content">
       <template v-if="sftpList.length || total>0">
-        <m-list @on-update="_onUpdate" :datasources-list="datasourcesList" :page-no="searchParams.pageNo" :page-size="searchParams.pageSize"></m-list>
+        <m-list @on-update="_onUpdate" :sftp-list="sftpList" :page-no="searchParams.pageNo" :page-size="searchParams.pageSize"></m-list>
         <div class="page-box">
           <x-page :current="parseInt(searchParams.pageNo)" :total="total" :page-size="searchParams.pageSize" show-elevator @on-change="_page" show-sizer :page-size-options="[10,30,50]" @on-size-change="_pageSize"></x-page>
         </div>
@@ -48,7 +48,7 @@ import mConditions from '@/module/components/conditions/conditions'
 import mListConstruction from '@/module/components/listConstruction/listConstruction'
 
 export default {
-  name: 'datasource-indexP',
+  name: 'sftp-indexP',
   data () {
     return {
       // loading
@@ -70,8 +70,7 @@ export default {
   mixins: [listUrlParamHandle],
   props: {},
   methods: {
-    ...mapActions('datasource', ['getDatasourcesListP']),
-
+    ...mapActions('sftp', ['getSftpListP']),
     /**
      * page
      */
@@ -97,8 +96,8 @@ export default {
         if(this.searchParams.pageNo>1 && res.totalList.length == 0) {
           this.searchParams.pageNo = this.searchParams.pageNo -1
         } else {
-          this.datasourcesList = []
-          this.datasourcesList = res.totalList
+          this.sftpList = []
+          this.sftpList = res.totalList
           this.total = res.total
           this.isLoading = false
         }

@@ -14,27 +14,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import Vue from 'vue'
-import Vuex from 'vuex'
-import dag from './dag'
-import projects from './projects'
-import resource from './resource'
-import security from './security'
-import datasource from './datasource'
-import user from './user'
-import monitor from './monitor'
-import sftp from "./sftp";
 
-Vue.use(Vuex)
-export default new Vuex.Store({
-  modules: {
-    dag,
-    projects,
-    resource,
-    security,
-    datasource,
-    user,
-    monitor,
-    sftp
-  }
-})
+import io from '@/module/io'
+
+export default {
+  /**
+   * Query data source list - paging
+   * @param "searchVal": string,
+   * @param "pageNo": int,
+   * @param "pageSize": int
+   */
+  getSftpListP ({ state }, payload) {
+    return new Promise((resolve, reject) => {
+      io.get('sftp/list-paging', payload, res => {
+        resolve(res.data)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+  /**
+   * Delete sftp
+   */
+  deleteSftp ({ state }, payload) {
+    return new Promise((resolve, reject) => {
+      io.get('sftp/delete', payload, res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+}
