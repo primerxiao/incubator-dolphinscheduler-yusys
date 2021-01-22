@@ -9,3 +9,7 @@
 2、添加vuex配置
 /src/js/conf/store/index.js
 /src/js/conf/store/sftp/
+3、配置导航菜单
+src/js/module/components/nav/nav.vue
+
+举例说明：添加一个sftp插件，提供文件上传和下载的功能
